@@ -8,4 +8,4 @@ title: Welcome to the Official Site of Lissa APP
 
 
 
-![download]({{ '/assets/images/Download_on_the_App_Store_Badge_dark.svg' | relative_url }})
+![download]({{ '/assets/images/Download_on_the_App_Store_Badge_dark.svg' | relative_url }}){: width="256" }
