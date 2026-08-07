@@ -12,6 +12,18 @@
       },
       "isBackground": false,
       "problemMatcher": []
+    },
+    {
+      "label": "Prettier: Format Current File",
+      "type": "shell",
+      "command": "npx",
+      "args": ["prettier", "${file}", "--write"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared",
+        "clear": false
+      }
     }
   ]
 }
