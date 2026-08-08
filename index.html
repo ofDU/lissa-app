@@ -135,6 +135,21 @@
         min-height: 512px;
       }
 
+      .image-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 512px;
+      }
+
+      .image-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
       .video-bg {
         position: absolute;
         inset: 0;
@@ -382,6 +397,51 @@
               </video>
 
               <button class="replay-button" type="button" aria-label="Replay">↻</button>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="h-100 p-5 text-bg-dark rounded-3">
+              <h2>Change the background</h2>
+              <p>
+                Swap the background-color utility and add a `.text-*` color utility to mix up the
+                jumbotron look. Then, mix and match with additional component themes and more.
+              </p>
+              <button class="btn btn-outline-light" type="button">Example button</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- fifth scroll item -->
+        <div class="row align-items-md-stretch py-3">
+          <div class="col-md-6">
+            <div class="h-100 p-5 text-bg-dark rounded-3">
+              <h2>Change the background</h2>
+              <p>
+                Swap the background-color utility and add a `.text-*` color utility to mix up the
+                jumbotron look. Then, mix and match with additional component themes and more.
+              </p>
+              <button class="btn btn-outline-light" type="button">Example button</button>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="image-card h-100 p-5 bg-body-tertiary border rounded-3">
+              <img class="image-bg" src="./assets/images/Lissajous_figure-wikicommons.jpg" />
+            </div>
+          </div>
+        </div>
+
+        <!-- sixth scroll item -->
+        <div class="row align-items-md-stretch py-3">
+          <div class="col-md-6">
+            <div class="image-card h-100 p-5 bg-body-tertiary border rounded-3">
+              <div class="image-card h-100 p-5 bg-body-tertiary border rounded-3">
+                <img
+                  class="image-bg"
+                  src="./assets/images/contact.png"
+                />
+              </div>
             </div>
           </div>
 
