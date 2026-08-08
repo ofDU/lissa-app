@@ -123,11 +123,26 @@
       }
 
       .hero {
-  background-image: url("./assets/images/watch-face-frame.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right center;
-}
+        background-image: url("./assets/images/watch-face-frame.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right center;
+      }
+
+      .video-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 512px;
+      }
+
+      .video-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
     </style>
   </head>
 
@@ -236,7 +251,7 @@
               class="me-2"
               viewBox="0 0 118 94"
               role="img"
-            >
+            />
             <span class="fs-4">Jumbotron example</span>
           </a>
         </header>
@@ -258,6 +273,7 @@
           </div>
         </div>
 
+        <!-- first scroll item -->
         <div class="row align-items-md-stretch">
           <div class="col-md-6">
             <div class="h-100 p-5 text-bg-dark rounded-3">
@@ -269,18 +285,17 @@
               <button class="btn btn-outline-light" type="button">Example button</button>
             </div>
           </div>
+
           <div class="col-md-6">
-            <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-              <h2>Add borders</h2>
-              <p>
-                Or, keep it light and add a border for some added definition to the boundaries of
-                your content. Be sure to look under the hood at the source HTML here as we've
-                adjusted the alignment and sizing of both column's content for equal-height.
-              </p>
-              <button class="btn btn-outline-secondary" type="button">Example button</button>
+            <div class="video-card h-100 p-5 bg-body-tertiary border rounded-3">
+              <video class="video-bg" muted playsinline>
+                <source src="./assets/videos/open-app.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
+
+        <!-- footer -->
         <footer class="pt-3 mt-4 text-body-secondary border-top">&copy; 2025</footer>
       </div>
     </main>
