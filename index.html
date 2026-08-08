@@ -143,6 +143,34 @@
         object-fit: cover;
         object-position: center;
       }
+
+      .replay-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        display: none;
+
+        width: 72px;
+        height: 72px;
+
+        border: 0;
+        border-radius: 50%;
+
+        font-size: 2.5rem;
+        line-height: 1;
+
+        color: white;
+        background: rgb(0 0 0 / 60%);
+
+        cursor: pointer;
+        z-index: 2;
+      }
+
+      .replay-button:hover {
+        background: rgb(0 0 0 / 80%);
+      }
     </style>
   </head>
 
@@ -291,6 +319,8 @@
               <video class="video-bg" muted playsinline>
                 <source src="./assets/videos/open-app.mp4" type="video/mp4" />
               </video>
+
+              <button class="replay-button" type="button" aria-label="Replay">↻</button>
             </div>
           </div>
         </div>
@@ -302,6 +332,8 @@
               <video class="video-bg" muted playsinline>
                 <source src="./assets/videos/swipe-tabs.mp4" type="video/mp4" />
               </video>
+
+              <button class="replay-button" type="button" aria-label="Replay">↻</button>
             </div>
           </div>
 
@@ -316,7 +348,7 @@
             </div>
           </div>
         </div>
-        
+
         <!-- third scroll item -->
         <div class="row align-items-md-stretch py-3">
           <div class="col-md-6">
@@ -335,6 +367,8 @@
               <video class="video-bg" muted playsinline>
                 <source src="./assets/videos/rotate-crown.mp4" type="video/mp4" />
               </video>
+
+              <button class="replay-button" type="button" aria-label="Replay">↻</button>
             </div>
           </div>
         </div>
@@ -346,6 +380,8 @@
               <video class="video-bg" muted playsinline>
                 <source src="./assets/videos/create-live-photo.mp4" type="video/mp4" />
               </video>
+
+              <button class="replay-button" type="button" aria-label="Replay">↻</button>
             </div>
           </div>
 
@@ -373,10 +409,11 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- scroll to play video -->
+    <!-- custom js -->
     <script>
       const videos = document.querySelectorAll(".video-bg");
 
+      // scroll to play video
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -395,6 +432,24 @@
       );
 
       videos.forEach((video) => observer.observe(video));
+
+      // replay button
+      const videoCards = document.querySelectorAll(".video-card");
+
+      videoCards.forEach((card) => {
+        const video = card.querySelector(".video-bg");
+        const replayButton = card.querySelector(".replay-button");
+
+        video.addEventListener("ended", () => {
+          replayButton.style.display = "block";
+        });
+
+        replayButton.addEventListener("click", () => {
+          replayButton.style.display = "none";
+          video.currentTime = 0;
+          video.play();
+        });
+      });
     </script>
   </body>
 </html>
