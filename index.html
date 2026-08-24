@@ -1,12 +1,456 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
 <head>
-<title>Github pages without jekyll</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="author" content="ofDU" />
+
+  <title>Lissa APP</title>
+
+  <script src="./assets/js/color-modes.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon" href="./assets/images/favicons/apple-touch-icon.png" sizes="180x180" />
+  <link rel="icon" href="./assets/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="./assets/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
+
+  <link rel="icon" type="image/png" href="./assets/images/favicons/favicon.png" />
+
+  <meta name="theme-color" content="#712cf9" />
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      width: 100%;
+      height: 3rem;
+      background-color: #0000001a;
+      border: solid rgba(0, 0, 0, 0.15);
+      border-width: 1px 0;
+      box-shadow:
+        inset 0 0.5em 1.5em #0000001a,
+        inset 0 0.125em 0.5em #00000026;
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -0.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .btn-bd-primary {
+      --bd-violet-bg: #712cf9;
+      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+      --bs-btn-font-weight: 600;
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-bg: var(--bd-violet-bg);
+      --bs-btn-border-color: var(--bd-violet-bg);
+      --bs-btn-hover-color: var(--bs-white);
+      --bs-btn-hover-bg: #6528e0;
+      --bs-btn-hover-border-color: #6528e0;
+      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+      --bs-btn-active-color: var(--bs-btn-hover-color);
+      --bs-btn-active-bg: #5a23c8;
+      --bs-btn-active-border-color: #5a23c8;
+    }
+
+    .bd-mode-toggle {
+      z-index: 1500;
+    }
+
+    .bd-mode-toggle .bi {
+      width: 1em;
+      height: 1em;
+    }
+
+    .bd-mode-toggle .dropdown-menu .active .bi {
+      display: block !important;
+    }
+
+    .hero {
+      background-image: url("./assets/images/site-caption.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right center;
+    }
+
+    .video-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 512px;
+    }
+
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 512px;
+    }
+
+    .image-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .replay-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      display: none;
+
+      width: 72px;
+      height: 72px;
+
+      border: 0;
+      border-radius: 50%;
+
+      font-size: 2.5rem;
+      line-height: 1;
+
+      color: white;
+      background: rgb(0 0 0 / 60%);
+
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .replay-button:hover {
+      background: rgb(0 0 0 / 80%);
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+  <main>
+    <div class="container py-4">
+      <!-- head bar -->
+      <header class="pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+          <img xmlns="http://www.w3.org/2000/svg" src="./assets/images/icon-full-size-round-corner.png" width="40"
+            height="40" class="me-2" viewBox="0 0 118 94" role="img" />
+          <span class="fs-4">Lissa APP</span>
+        </a>
+      </header>
 
+      <!-- jumbotron -->
+      <div class="hero p-5 mb-4 bg-body-tertiary rounded-3" style="min-height: 75vh">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Create fascinating graphics </h1>
+          <h1 class="display-5 fw-bold">right on your wrist</h1>
+          <br>
+          <p class="col-md-6 fs-4">
+            Designed around the unique interactions of Apple Watch. Rotate the Digital Crown to explore and
+            create colorful, ever-changing dynamic graphics. Simple gestures can lead to surprising results.
+          </p>
+          <img style="width: 200px; height: auto" src="./assets/images/Download_on_the_App_Store_Badge_dark.svg" />
+        </div>
+      </div>
+
+      <!-- first scroll item -->
+      <div class="row align-items-md-stretch py-3">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2 class="py-2">Open the app</h2>
+            <p>Please go to the app view on your Apple Watch, then tap this app.</p>
+            <!-- <button class="btn btn-outline-light" type="button">Example button</button> -->
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="video-card h-100 p-5 bg-body-tertiary border rounded-3">
+            <video class="video-bg" muted playsinline>
+              <source src="./assets/videos/open-app.mp4" type="video/mp4" />
+            </video>
+
+            <button class="replay-button" type="button" aria-label="Replay">↻</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- second scroll item -->
+      <div class="row align-items-md-stretch py-3">
+        <div class="col-md-6">
+          <div class="video-card h-100 p-5 bg-body-tertiary border rounded-3">
+            <video class="video-bg" muted playsinline>
+              <source src="./assets/videos/swipe-tabs.mp4" type="video/mp4" />
+            </video>
+
+            <button class="replay-button" type="button" aria-label="Replay">↻</button>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2 class="py-2">Switch between views</h2>
+            <p>
+              Swipe left or right to switch between views. Each view lets you adjust a different
+              aspect of the graphic.
+            </p>
+            <!-- <button class="btn btn-outline-light" type="button">Example button</button> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- third scroll item -->
+      <div class="row align-items-md-stretch py-3">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2 class="py-2">Edit the graphic</h2>
+            <p>
+              Use the Digital Crown to adjust the graphic. Rotate the Crown, and the graphic in
+              the current view will change accordingly. Combine view switching with Digital Crown
+              rotation to create your own unique graphics.
+            </p>
+            <!-- <button class="btn btn-outline-light" type="button">Example button</button> -->
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="video-card h-100 p-5 bg-body-tertiary border rounded-3">
+            <video class="video-bg" muted playsinline>
+              <source src="./assets/videos/rotate-crown.mp4" type="video/mp4" />
+            </video>
+
+            <button class="replay-button" type="button" aria-label="Replay">↻</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- fourth scroll item -->
+      <div class="row align-items-md-stretch py-3">
+        <div class="col-md-6">
+          <div class="video-card h-100 p-5 bg-body-tertiary border rounded-3">
+            <video class="video-bg" muted playsinline>
+              <source src="./assets/videos/guide-goal.mp4" type="video/mp4" />
+            </video>
+
+            <button class="replay-button" type="button" aria-label="Replay">↻</button>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2 class="py-2">Goal</h2>
+            <p>
+              Use small, precise rotations to make stable and simple graphics. The controls can be
+              sensitive in certain aspects.
+            </p>
+            <!-- <button class="btn btn-outline-light" type="button">Example button</button> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- fifth scroll item -->
+      <div class="row align-items-md-stretch py-3">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2 class="py-2">Create Live Photo</h2>
+            <p>Create a Live Photo from the graphic you made and share it with friends!</p>
+            <!-- <button class="btn btn-outline-light" type="button">Example button</button> -->
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="video-card h-100 p-5 bg-body-tertiary border rounded-3">
+            <video class="video-bg" muted playsinline>
+              <source src="./assets/videos/create-live-photo.mp4" type="video/mp4" />
+            </video>
+
+            <button class="replay-button" type="button" aria-label="Replay">↻</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- sixth scroll item -->
+      <div class="row align-items-md-stretch py-3">
+        <div class="col-md-6">
+          <div class="image-card h-100 p-5 bg-body-tertiary border rounded-3">
+            <img class="image-bg" src="./assets/images/Lissajous_figure-wikicommons.jpg" />
+          </div>
+
+          <small class="text-body-secondary">
+            <a href="https://commons.wikimedia.org/wiki/File:Lissajous_figure_3-2.jpg" target="_blank"
+              rel="noopener noreferrer">
+              "Lissajous figure 3-2"
+            </a>
+            by
+            <a href="https://www.flickr.com/photos/omegatron/" target="_blank" rel="noopener noreferrer">
+              endolith </a>, licensed under
+            <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">
+              CC BY-SA 2.0 </a>, via
+            <a href="https://commons.wikimedia.org/wiki/File:Lissajous_figure_3-2.jpg" target="_blank"
+              rel="noopener noreferrer">
+              Wikimedia Commons </a>.
+          </small>
+        </div>
+
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2 class="py-2">Inspiration</h2>
+            <p>
+              This app was inspired by Lissajous figures, named after the French physicist Jules
+              Antoine Lissajous. Formed by combining two perpendicular harmonic oscillations,
+              these patterns reveal the relationships between frequency and phase through simple,
+              elegant geometry.
+            </p>
+            <a href="https://en.wikipedia.org/wiki/Lissajous_curve" class="btn btn-outline-light" type="button">
+              About Lissajous Figures
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- seventh scroll item -->
+      <div class="row align-items-md-stretch py-3">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2 class="py-2">Get in Touch</h2>
+            <p>
+              Have a suggestion or an idea for the app? Your feedback is always welcome. Feel free
+              to email me anytime — I'd be happy to hear from you.
+            </p>
+            <a href="mailto:ihearmywords@hotmail.com?subject=Feedback%20%26%20Suggestions" class="btn btn-outline-light"
+              type="button">Send Feedback</a>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="image-card h-100 p-5 bg-body-tertiary border rounded-3">
+            <img class="image-bg" src="./assets/images/contact.png" />
+          </div>
+        </div>
+      </div>
+
+      <!-- eighth scroll item -->
+      <div class="row align-items-md-stretch py-3">
+        <div class="col-md-6">
+          <div class="image-card h-100 p-5 bg-body-tertiary border rounded-3">
+            <img class="image-bg" src="./assets/images/security.png" />
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2 class="py-2">Privacy Policy</h2>
+            <p>
+              Your privacy is important to us. This app does not require an account and does not
+              directly collect, store, or transmit personal information to the developer. The app
+              uses Google AdMob to support development through advertising, and Google may process
+              certain device, advertising, diagnostic, and interaction information in connection
+              with providing ads.
+            </p>
+            <a href="./privacy/" class="btn btn-outline-light" type="button">
+              View Full Policy
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <footer class="pt-3 mt-4 text-body-secondary border-top">&copy; ofDU, 2026</footer>
+    </div>
+  </main>
+
+  <!-- import bootstrap js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <!-- custom js -->
+  <script>
+    const videos = document.querySelectorAll(".video-bg");
+
+    // scroll to play video
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+
+          if (entry.isIntersecting) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      },
+      {
+        threshold: 1.0,
+      },
+    );
+
+    videos.forEach((video) => observer.observe(video));
+
+    // replay button
+    const videoCards = document.querySelectorAll(".video-card");
+
+    videoCards.forEach((card) => {
+      const video = card.querySelector(".video-bg");
+      const replayButton = card.querySelector(".replay-button");
+
+      video.addEventListener("ended", () => {
+        replayButton.style.display = "block";
+      });
+
+      replayButton.addEventListener("click", () => {
+        replayButton.style.display = "none";
+        video.currentTime = 0;
+        video.play();
+      });
+    });
+  </script>
 </body>
+
 </html>
